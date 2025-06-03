@@ -4,8 +4,11 @@ pc_choise = random.choice(['sang', 'kaqaz', 'qeychi'])
 
 user_choice = input('Enter what you want rock, paper, or scissor: ')
 
+def set_pc():
+    return random.choice(['sang', 'kaqaz', 'qeychi'])
 
 def normalize(user):
+    ''' input var checked and normalized '''
     lis = ['sang', 'SANG', 'ROCK', 's']
     lis2 = ['kagaz', 'KAGAZ', 'PAPER', 'k']
     lis3 = ['scissor', 'SCISSOR', 'QEYCHI', 'qeychi', 'q']
@@ -23,6 +26,7 @@ user = normalize(user_choice)
 
 
 def davari(user, pc):
+    ''' check how is wining '''
     try:
         if pc == 'sang' and user == 'kaqaz':
             return 'user win'
