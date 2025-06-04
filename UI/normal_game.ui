@@ -112,7 +112,7 @@
     <string>pc::</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="ps">
    <property name="geometry">
     <rect>
      <x>790</x>

@@ -27,21 +27,52 @@ class start(QWidget):
         loadUi(r"UI\normal_game.ui", self)
         self.setWindowIcon(QIcon(r"icon\master_icon.ico"))
         self.setWindowTitle('now is gaming...')
-        self.sang.clicked.connect(self.handl)
         self.pc = ''
+        self.sang.clicked.connect(self.handl)
+        self.qeychi.clicked.connect(self.handl2)
+        self.kagaz.clicked.connect(self.handl3)
 
     def handl(self):
         self.set_pc()
-        self.process()
+        self.process_sang()
+
+    def handl2(self):
+        self.set_pc()
+        self.process_qeychi()
+
+    def handl3(self):
+        self.set_pc()
+        self.process_kaqz()
 
     def set_pc(self):
-        self.pc = random.choice(['sang', 'kaqaz', 'qeychi'])
+        self.pc = random.choice(['sang', 'paper', 'qeychi'])
 
-    def process(self):
+    def process_sang(self):
+        self.ps.setText(f'{self.pc}')
 
         if self.pc == 'qeychi':
             mes = 'WIN'
-        elif self.pc == 'kaqaz':
+        elif self.pc == 'paper':
+            mes = 'lose'
+        else:
+            mes = 'barabar'
+        self.label.setText(mes)
+
+    def process_qeychi(self):
+        self.ps.setText(f'{self.pc}')
+        if self.pc == 'paper':
+            mes = 'WIN'
+        elif self.pc == 'sang':
+            mes = 'lose'
+        else:
+            mes = 'barabar'
+        self.label.setText(mes)
+
+    def process_kaqz(self):
+        self.ps.setText(f'{self.pc}')
+        if self.pc == 'sang':
+            mes = 'WIN'
+        elif self.pc == 'qeychi':
             mes = 'lose'
         else:
             mes = 'barabar'
