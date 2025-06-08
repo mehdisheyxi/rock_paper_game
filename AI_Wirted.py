@@ -14,16 +14,18 @@ class MyApp(QMainWindow):
         self.start.clicked.connect(self.load_start)
 
     def load_start(self):
-        self.new_page = GamePage()
+        self.new_page = GamePage(0)
         self.new_page.show()
 
 
 class GamePage(QWidget):
-    def __init__(self):
+    def __init__(self,score):
         super().__init__()
         loadUi(r"UI\normal_game.ui", self)
         self.setWindowIcon(QIcon(r"icon\master_icon.ico"))
         self.setWindowTitle('Now is Gaming...')
+        self.score = 000
+        self.label_4.setText(f'{self.score}')
 
         self.choices = {
             'sang': 'qeychi',
@@ -41,10 +43,15 @@ class GamePage(QWidget):
 
         if pc_choice == self.choices[player_choice]:
             result = 'WIN'
+            self.score += 1
+            self.label_4.setText(f'{self.score}')
+
         elif player_choice == pc_choice:
             result = 'EQUAL'
         else:
             result = 'LOSE'
+            self.score -= 1
+            self.label_4.setText(f'{self.score}')
 
         self.label.setText(result)
 
