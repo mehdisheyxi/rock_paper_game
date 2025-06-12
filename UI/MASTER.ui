@@ -40,7 +40,12 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">        background-color: #6C63FF;
+        color: white;
+        border-radius: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
+    </string>
     </property>
     <property name="text">
      <string>setting</string>
